@@ -16,8 +16,13 @@ dependencies:
   path: ^1.8.1
   #smartstruct:
   #  path: ../smartstruct
-  smartstruct: ^1.3.0
-  source_gen: ^1.2.1
-dependency_overrides:
+  #smartstruct: ^1.3.0
   smartstruct:
-    path: ../smartstruct
+    git:
+      url: https://github.com/luissalgadofreire/smartstruct
+      ref: develop
+      path: smartstruct
+  source_gen: ^1.2.1
+#dependency_overrides:
+#  smartstruct:
+#    path: ../smartstruct
