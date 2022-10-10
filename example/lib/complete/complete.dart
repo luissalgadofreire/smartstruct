@@ -15,13 +15,7 @@ abstract class SuperFooSource {
 
   String get superGet;
 
-  String? _superPropertySet;
-
-  String? get superPropertySet => _superPropertySet;
-
-  set superPropertySet(String? superPropertySet) {
-    _superPropertySet = superPropertySet;
-  }
+  String? superPropertySet;
 
   SuperFooSource(this.superText);
 }
@@ -70,26 +64,14 @@ class BarTarget {
   String namedTwoDiff;
   String? property;
   String? propertyTwoDiff;
-  num? _setterNumber;
-  String? _setterTextDiff;
+  num? setterNumber;
+  String? setterTextDiff;
   late BarNestedTarget nested;
   final List<BarNestedTarget> list;
   final String superText;
   String? superPropertySet;
   String? secondText;
   final String secondTextOther;
-
-  String? get setterTextDiff => _setterTextDiff;
-
-  set setterTextDiff(String? setterTextDiff) {
-    _setterTextDiff = setterTextDiff;
-  }
-
-  num? get setterNumber => _setterNumber;
-
-  set setterNumber(num? setterNumber) {
-    _setterNumber = setterNumber;
-  }
 
   BarTarget(this.numberDiff, this.text, this.truthy, this.superText,
       {required this.named,

@@ -1,6 +1,6 @@
 import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/type.dart';
-import 'package:smartstruct_generator/models/RefChain.dart';
+import 'package:smartstruct_generator/models/ref_chain.dart';
 
 class SourceAssignment {
   FieldElement? field;

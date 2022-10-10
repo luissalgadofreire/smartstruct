@@ -1,8 +1,5 @@
-import 'dart:collection';
-
-import 'package:analyzer/dart/element/type.dart';
-import 'package:build/src/builder/build_step.dart';
 import 'package:analyzer/dart/element/element.dart';
+import 'package:build/build.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:smartstruct/smartstruct.dart';
 import 'package:smartstruct_generator/code_builders/class_builder.dart';

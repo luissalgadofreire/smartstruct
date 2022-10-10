@@ -3,7 +3,7 @@ import 'package:code_builder/code_builder.dart';
 import 'package:source_gen/source_gen.dart';
 
 Parameter copyParameter(ParameterElement e) {
-  if (e.type.element == null) {
+  if (e.type.element2 == null) {
     throw InvalidGenerationSourceError(
         '${e.type} is not a valid parameter type',
         element: e,

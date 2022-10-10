@@ -8,6 +8,7 @@ class FunctionSubTarget {
 
 class ComplexFunctionSubTargetHolder {
 
+  // ignore: unused_field
   FunctionSubTarget? _data;
 
   setData(FunctionSubTarget data) {

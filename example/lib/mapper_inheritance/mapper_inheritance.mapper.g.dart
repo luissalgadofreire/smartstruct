@@ -15,7 +15,6 @@ class UserLoginContractFromEntityMapperImpl
     if (entity == null) {
       return null;
     }
-    ;
     final userlogincontract = UserLoginContract(entity.age, entity.id);
     return userlogincontract;
   }
@@ -30,7 +29,6 @@ class UserLoginContractFromEntityMapper2Impl
     if (entity == null) {
       return null;
     }
-    ;
     final userlogincontract2 = UserLoginContract2(entity.age, entity.id);
     return userlogincontract2;
   }

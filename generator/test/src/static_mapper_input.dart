@@ -1,6 +1,7 @@
 part of 'mapper_test_input.dart';
 
 enum StaticEnumTarget {
+  // ignore: constant_identifier_names
   ONE,TWO,THREE
 }
 

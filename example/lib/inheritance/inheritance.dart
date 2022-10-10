@@ -4,13 +4,7 @@ part 'inheritance.mapper.g.dart';
 
 abstract class SuperFooSource {
   final String superFoo;
-  String? _superProp;
-
-  String? get superProp => _superProp;
-
-  set superProp(String? superProp) {
-    _superProp = superProp;
-  }
+  String? superProp;
 
   String get superText;
 

@@ -75,7 +75,7 @@ Class _generateMapperImplementationClass(
       ..name = '${abstractClass.displayName}Impl'
       ..constructors.addAll(
           abstractClass.constructors.map((c) => _generateConstructor(c)))
-      ..extend = refer('${abstractClass.displayName}')
+      ..extend = refer(abstractClass.displayName)
       ..methods.addAll(_getAllMethods(abstractClass.thisType)
           .where((method) => method.isAbstract)
           .map((method) =>

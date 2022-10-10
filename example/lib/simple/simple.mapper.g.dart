@@ -14,7 +14,6 @@ class FooBarMapperImpl extends FooBarMapper {
     if (foo == null) {
       return null;
     }
-    ;
     final bar = Bar(foo.fooBar);
     return bar;
   }

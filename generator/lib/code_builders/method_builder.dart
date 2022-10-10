@@ -3,7 +3,7 @@ import 'dart:collection';
 import 'package:analyzer/dart/element/element.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:smartstruct_generator/code_builders/parameter_copy.dart';
-import 'package:smartstruct_generator/models/RefChain.dart';
+import 'package:smartstruct_generator/models/ref_chain.dart';
 import 'package:smartstruct_generator/models/source_assignment.dart';
 import 'package:smartstruct_generator/mapper_config.dart';
 import 'package:source_gen/source_gen.dart';
@@ -94,6 +94,7 @@ Code _generateBody(Map<String, dynamic> config, MethodElement method,
   // final output = Output(positionalArgs, {namedArgs});
   blockBuilder.addExpression(refer(targetConstructor.displayName)
       .newInstance(positionalArgs, namedArgs)
+      // ignore: deprecated_member_use
       .assignFinal(targetVarName));
 
   // non final properties (implicit and explicit setters)
@@ -130,8 +131,8 @@ ConstructorElement _chooseConstructor(ClassElement outputClass) {
 
 List<FieldElement> _findFields(ClassElement clazz) {
   final allSuperclasses = clazz.allSupertypes
-      .map((e) => e.element)
-      .where((element) => !element.isDartCoreObject)
+      .map((e) => e.element2)
+      .where((element) => !element.thisType.isDartCoreObject)
       .toList();
 
   final allAccessors = allSuperclasses.map((e) => e.accessors).expand((e) => e);
@@ -202,8 +203,7 @@ List<HashMap<String, SourceAssignment>> _targetToSource(
         for (var matchedTarget in matchedSourceClazzInSourceMapping.keys) {
           final sourceValueList =
               matchedSourceClazzInSourceMapping[matchedTarget]!;
-          final fieldClazz = f.type.element2 as ClassElement;
-          
+
           final refChain = RefChain.byPropNames(sourceEntry.value, sourceValueList.sublist(1));
           targetToSource[matchedTarget] = SourceAssignment.fromRefChain(refChain);
         }
@@ -257,6 +257,7 @@ Map<String, MappingConfig> _extractStringMappingConfig(
 /// Searches for a matching class for every given [MappingConfig] in [mappingStringConfig], matched against the given [matchingSourceClazzName]
 /// For MappingConfigs including dot seperated clazz attributes, the first value before the first dot is matched against the given matchingSourceClazzName.
 /// Example: A MappingConfig containing "user.address.zipcode" would try to match against user
+// ignore: unused_element
 List<List<String>> _findMatchingSourceClazzInMapping(
     Map<String, MappingConfig> mappingStringConfig,
     String matchingSourceClazzName) {
@@ -292,6 +293,7 @@ Map<String, List<String>> _findMatchingSourceClazzInMappingMap(
 ///
 /// Example: [sources]="user,address,zipcode" with [fields]=address would identify address as a field, then continue searching in the address field for the zipcode field.
 /// If the address contains a field zipcode, the zipcode field is returned.
+// ignore: unused_element
 FieldElement? _findMatchingField(
     List<String> sources, List<FieldElement> fields) {
   for (var source in sources) {
@@ -309,6 +311,7 @@ FieldElement? _findMatchingField(
       return foundField;
     }
   }
+  return null;
 }
 
 /// A search for a potential underlying should only be continued, if the field is not a primitive type (string, int, double etc)

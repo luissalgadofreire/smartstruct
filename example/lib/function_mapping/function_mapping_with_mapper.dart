@@ -9,10 +9,7 @@ class FunctionSubTarget {
 
 class ComplexFunctionSubTargetHolder {
 
-  FunctionSubTarget? _data;
-
   setData(FunctionSubTarget data) {
-    _data = data;
   }
 }
 

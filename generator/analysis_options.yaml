@@ -10,6 +10,6 @@ include: package:lints/recommended.yaml
 # analyzer:
 #   exclude:
 #     - path/to/excluded/files/**
-analyzer:
-  enable-experiment:
-    - non-nullable
+# analyzer:
+#   enable-experiment:
+#     - non-nullable

@@ -1,5 +1,4 @@
 import 'package:smartstruct/smartstruct.dart';
-import 'package:smartstruct_example/function_mapping/function_utils.dart';
 part 'function_mapping_more.mapper.g.dart';
 
 // TARGET
